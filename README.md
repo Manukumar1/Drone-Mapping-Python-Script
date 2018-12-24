@@ -3,53 +3,56 @@ Software Development Intern - Skylark Drones - Technical Assignment
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+First download the whole repository into your PC. Then all you need is to run the python program techScript.py , provide the inputs for:
+* Radius(in meters) of video coverage
+* Radius(in meters) for Points of Interest
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+First you should have **Python 3** or above version of Python installed in your PC. If it's not installed one can easily install it through following links:
 
-```
-pip install pysrt
-```
+* [Installing Python 3 on Windows](https://docs.python-guide.org/starting/install3/win/)
+* [Installing Python 3 on Mac OS X](https://docs.python-guide.org/starting/install3/osx/)
+* [Installing Python 3 on Linux](https://docs.python-guide.org/starting/install3/linux/)
+
+We need to then, install **Anaconda** software.
+* [Installing Anaconda on Windows](https://docs.anaconda.com/anaconda/install/windows/)
+* [Installing Anaconda on macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
+* [Installing Anaconda on Linux](https://docs.anaconda.com/anaconda/install/linux/)
+
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+After installing python 3 and Anaconda softwares succesfully, we need to install all the necessary packages in order to run the script.
 ```
-Give the example
+pip install pysrt
 ```
-
-And repeat
-
 ```
-until finished
+pip install piexif
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+**glob, math, csv, datetime** are the other packages used for this script. As they come built-in with Python, hence we don't need to install them separately.
+
+## Sample Input
+
+Enter the radius(in meters) of video coverage: **35**
+Enter the radius(in meters) for Points of Interest: **50**
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+After entering the required details, click Enter key and wait for few seconds for the command line to display message as:
 
-### Break down into end to end tests
+**CSV file for video: video_DJI_0301.csv generated and saved.**
+**CSV file for POI: imgFromassets.csv generated and saved.**
 
-Explain what these tests test and why
+## Sample Input/Output Console Screen
+![alt text](https://github.com/Manukumar1/Skylark-Drones-Technical-Assignment/blob/master/SampleOutputConsoleScreen.png "SampleOutputConsoleScreen")
 
-```
-Give an example
-```
+## Output Video CSV
+![alt text](https://github.com/Manukumar1/Skylark-Drones-Technical-Assignment/blob/master/OutputVideoCSV.png "OutputVideoCSV")
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+## Output Assets CSV
+![alt text](https://github.com/Manukumar1/Skylark-Drones-Technical-Assignment/blob/master/OutputAssetsCSV.png "OutputAssetsCSV")
 
 ## Built With
 
