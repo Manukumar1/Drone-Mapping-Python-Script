@@ -1,9 +1,9 @@
-# Skylark-Drones-Technical-Assignment
+# Skylark Drones - Technical Assignment
 Software Development Intern - Skylark Drones - Technical Assignment
 
 ## Getting Started
 
-First download the whole repository into your PC. Then all you need is to run the python program techScript.py , provide the inputs for:
+First download the whole repository into your PC. Then all you need is to run the python program **techScript.py** , provide the inputs for:
 * Radius(in meters) of video coverage
 * Radius(in meters) for Points of Interest
 
@@ -36,6 +36,8 @@ pip install piexif
 ## Sample Input
 
 Enter the radius(in meters) of video coverage: **35**
+
+
 Enter the radius(in meters) for Points of Interest: **50**
 
 ## Running the tests
@@ -43,6 +45,8 @@ Enter the radius(in meters) for Points of Interest: **50**
 After entering the required details, click Enter key and wait for few seconds for the command line to display message as:
 
 **CSV file for video: video_DJI_0301.csv generated and saved.**
+
+
 **CSV file for POI: imgFromassets.csv generated and saved.**
 
 ## Sample Input/Output Console Screen
@@ -61,14 +65,10 @@ After entering the required details, click Enter key and wait for few seconds fo
 
 ## Authors
 
-* **Manukumar Rudresh** - *Initial work* - [Manukumar1](https://github.com/Manukumar1)
+* **Manukumar Rudresh** - [Manukumar1](https://github.com/Manukumar1)
 
 See also the list of [contributors](https://github.com/Manukumar1/Skylark-Drones-Technical-Assignment/graphs/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
-* Wayne Dyck - [snippet](https://gist.github.com/rochacbruno/2883505) for Haversine formula
+* Wayne Dyck - [snippet](https://gist.github.com/rochacbruno/2883505) for Haversine formula to calculate the distance between two GPS coordinates.
