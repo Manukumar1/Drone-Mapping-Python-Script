@@ -29,22 +29,15 @@ def imgMapping(imgDirectory):
       to their GPS coordinates from the EXIF data stored within them '''
       
       imgToGPScoordinates = {}
- #     imgList = glob.glob('imgDirectory/*.jpg')        # finds all the images having .JPG image format
 
-      for img in glob.glob('images/*.jpg'):
+      for img in glob.glob('images/*.jpg'):           # finds all the images having .JPG image format
             imgName = img.strip('images\ ')   
             img_path = '/'.join([imgDirectory, imgName])
 #            print(img_path)
             imgMetadata = getMetadataImage(img_path)
-            
-#            imgToGPScoordinates.append(imgMetadata)
-            
-#            lat, lon = getLatLon(img_path).get_lat_lon()
-#            if lat and lon:
-            
-            imgToGPScoordinates[imgName] = (imgMetadata)    # imgToGPScoordinates stores all the image's latitude and longitude info
 
-#      print(imgToGPScoordinates)     
+            imgToGPScoordinates[imgName] = (imgMetadata)    # imgToGPScoordinates stores all the image's latitude and longitude info
+ 
       return imgToGPScoordinates
 
 def getImgWithinRadius(currCoordinate, imgToGPScoordinates, Radius):
@@ -56,7 +49,7 @@ def getImgWithinRadius(currCoordinate, imgToGPScoordinates, Radius):
       
 #      for nextCoordinate in range(len(imgToGPScoordinates)):
       for img, nextCoordinate in imgToGPScoordinates.items():
-#            dist = (haversineNew.haversine(currCoordinate, nextCoordinate))
+#            dist = (haversineNew.distance(currCoordinate, nextCoordinate))
             dist = (haversine.distance((currCoordinate), (nextCoordinate)))
             if dist <= Radius:
                   imgDir.append(img)
@@ -182,9 +175,9 @@ def ImagesNearVideo(video, vidLocation, imgToGPScoordinates):
          
          DataForCSV.append([currentTime.strftime("%M:%S"), ", ".join(imgList)])
 
-      writeToCSVfile(DataForCSV, FileNameGenerator(video, "csv"))
+      writeToCSVfile(DataForCSV, FileNameGenerator("video_" + video, "csv"))
       
-      print("CSV file for video: {0} generated and saved.".format(video))
+      print("CSV file for video: {0} generated and saved.".format("video_" + video))
 
 def AllVideos(vidLocation, imgToGPScoordinates):
       for vid in glob.glob('videos/*.srt'):
@@ -207,24 +200,15 @@ def imagesForPOI(POIfile, imgToGPScoordinates, Radius):
             currCoordinate = (asset["latitude"], asset["longitude"])
             imgs = getImgWithinRadius(currCoordinate, imgToGPScoordinates, Radius)
             imageList.append([asset["asset_name"], asset["longitude"], asset["latitude"], ", ".join(imgs)])
-      writeToCSVfile(imageList, FileNameGenerator(POIfile, "csv"))
-      print("CSV file for POI: {0} generated and saved.".format(POIfile))
+      writeToCSVfile(imageList, FileNameGenerator("imgFrom" + POIfile, "csv"))
+      print("CSV file for POI: {0} generated and saved.".format("imgFromassets.csv"))
 
-#      assetsData = readFromCSVfile(POIfile)
-#      print(assetsData)
-#      imagesData = []
-#      imagesData.append(["asset_name", "image_names"])
-#      for asset in assetsData:
-#            print(asset['latitude'])
-#            currCoords = (assetsData[asset], assetsData[asset])
-#            img_list = getImgWithinRadius(currCoords, imgToGPScoordinates, Radius)
-#            imagesData.append([asset["asset_name"], ", ".join(img_list)])      
-#      writeToCSVfile(imagesData, POIfile)
       
-
+#--------------------- Taking Inputs from users ----------------------
 vidRadius = int(input("Enter the radius(in meters) of video coverage: "))
 POIRadius = int(input("Enter the radius(in meters) for Points of Interest: "))
 
+#-------------------------- To run the script -------------------------
 imgToGPScoordinates = imgMapping("images")
 
 AllVideos(videoDirectory, imgToGPScoordinates)
